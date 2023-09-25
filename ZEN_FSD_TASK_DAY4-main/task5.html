@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- TASK:Print the country which uses US Dollars as currency. -->
+    <script>
+        var data=new XMLHttpRequest();
+        data.open("GET","https://restcountries.com/v3.1/all");
+        data.send();
+        data.onload=function(){
+            var list=JSON.parse(data.response);
+            console.log(list);
+           var dollar= list.filter((e,i) =>list[i].currencies.EUR.name=="United States dollar");
+           dollar.map((e,i)=>{
+            console.log( `${dollar[i].name.common}=>${dollar[i].currencies.EUR.name}`)})
+        }
+    </script>
+</body>
+</html>

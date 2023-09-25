@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- TASK:Get all the countries with a population of less than 2 lakhs using Filter function -->
+   <script>
+     var data1=new XMLHttpRequest();
+     data1.open("GET","https://restcountries.com/v3.1/all");
+     data1.send();
+     data1.onload=function(){
+        var country=JSON.parse(data1.response);
+        console.log("country=>population");
+        var popu=country.filter((e,i)=>country[i].population<200000);
+        popu.map((e,i)=>{
+            console.log(`${popu[i].name.common}=>${popu[i].population}`)
+        })
+     }
+
+   </script>
+
+</body>
+</html>

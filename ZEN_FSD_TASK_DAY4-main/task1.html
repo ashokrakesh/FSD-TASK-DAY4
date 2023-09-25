@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- TASK:Get all the countries from the Asia continent /region using the Filter function from the API https://restcountries.com/v3.1/all -->
+    <script>
+       // var url="https://restcountries.com/v3.1/all"
+        var data=new XMLHttpRequest();
+        data.open("GET","https://restcountries.com/v3.1/all")
+        data.send();
+        data.onload=function(){
+            var realData=JSON.parse(data.response);
+          console.log("All the countries from the Asian regions are:");
+           var asia= realData.filter((a,b)=>realData[b].region=="Asia");
+            asia.map((e,index)=>{
+                console.log(asia[index].name.common);
+            })
+        }
+       
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- TASK:Print the following details name, capital, flag using forEach function -->
+    <script>
+        var list=new XMLHttpRequest();
+        list.open("GET","https://restcountries.com/v3.1/all");
+        list.send();
+        list.onload=function(){
+            var data=JSON.parse(list.response);
+            console.log("name=>capital=>flag");
+            data.forEach((e,i)=> {
+            console.log(`${data[i].name.common}=>${data[i].capital}=>${data[i].flag}`)
+            });
+        }
+
+    </script>
+</body>
+</html>
